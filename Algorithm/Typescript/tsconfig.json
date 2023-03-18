@@ -9,5 +9,5 @@
       "esModuleInterop": true
     },
   "exclude": ["node_modules"],
-  "include": ["*", "source/230316_baekjoon2557.ts"]
+  "include": ["*"]
 }
