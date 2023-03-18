@@ -7,7 +7,7 @@
       "target": "ES5",
       "outDir": "./dist",
       "esModuleInterop": true
-  },
+    },
   "exclude": ["node_modules"],
-  "include": ["*"]
+  "include": ["*", "source/230316_baekjoon2557.ts"]
 }
