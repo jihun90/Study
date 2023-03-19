@@ -1,5 +1,4 @@
-let inputPath: string = '';
-inputPath = process.argv[2];
+let inputPath  = process.argv.slice(2)[0];
 //inputPath = '/dev/stdin';
 
 let input : string[] = require('fs').readFileSync(inputPath).toString().split('\n');
