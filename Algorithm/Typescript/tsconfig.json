@@ -1,13 +1,11 @@
 {
   "compilerOptions": {
-      "strict": true,
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "lib": ["es2015","es2016","es2017","es2018","es2019","es2020"],
-      "target": "ES5",
-      "outDir": "./dist",
-      "esModuleInterop": true
-    },
-  "exclude": ["node_modules"],
-  "include": ["*"]
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "files": ["/Users/kimjihun/Documents/WorkSpace/Study/Algorithm/Typescript/source/230319_baekjoon10869.ts"],
+  //"include": ["source/**/*"]
 }

@@ -1,4 +1,12 @@
 {
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "${file}",
+  "scripts": {
+    "start": "${file} Users/kimjihun/Documents/WorkSpace/Study/Algorithm/Typescript/input.txt",
+    "compile": "tsc"
+  },
   "dependencies": {
     "typescript": "4.9.5"
   },
