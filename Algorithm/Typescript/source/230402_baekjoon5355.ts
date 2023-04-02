@@ -1,11 +1,9 @@
 import * as fs from "fs";
 
-//let inputPath: string = process.argv.slice(2)[0];
-let inputPath: string = "/dev/stdin";
+let inputPath: string = process.argv.slice(2)[0];
+//let inputPath: string = "/dev/stdin";
 
 let input: string[] = fs.readFileSync(inputPath).toString().split("\n");
-
-let T: number = Number(input.splice(0, 1));
 
 let marsFunc: { [key: string]: (elemnt: number) => number };
 marsFunc = {
@@ -20,13 +18,15 @@ marsFunc = {
   }
 };
 
-for (const elemnet of input) {
+for (const elemnet of input.slice(1)) {
+  if (elemnet === "") continue; // 빈 문자열 처리
+
   let arr: string[] = elemnet.split(" ");
   let N: number = Number(arr.splice(0, 1));
 
-  arr.forEach((sign: string) => {
+  arr.map((sign: string) => {
     N = marsFunc[sign](N);
   });
 
   console.log(N.toFixed(2));
-};
+}
