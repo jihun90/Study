@@ -9,15 +9,19 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    function Btn({ banana }) {
-      return <button style={{ backgroundColor: "tomato", color: "while", padding: "10px 20px", border: 0, borderRadius: 10 }}>{banana}</button>;
+    function Btn({ text, big }) {
+      return (
+        <button style={{ backgroundColor: "tomato", color: "while", padding: "10px 20px", border: 0, borderRadius: 10, fontsize: big ? 18 : 16 }}>
+          {text}
+        </button>
+      );
     }
 
     const App = () => {
       return (
         <div>
-          <Btn banana="SaveChage" /> {/*Btn({banana:"save chages"})*/}
-          <Btn banana="Continue" />
+          <Btn text="SaveChage" big={true} />
+          <Btn text="Continue" big={false} />
         </div>
       );
     };
