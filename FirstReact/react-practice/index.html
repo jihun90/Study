@@ -8,7 +8,8 @@
   <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    const App = () => {
+
+    const MinutesToHours = () => {
       const [amount, setAmount] = React.useState(0);
       const [inverted, setInverted] = React.useState(false);
 
@@ -21,7 +22,6 @@
 
       return (
         <div>
-          <h1 className="hi">Spuer Converter</h1>
           <label htmlFor="minutes">Minutes</label>
           <input value={inverted ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={inverted} />
           <div>
@@ -33,6 +33,32 @@
         </div>
       );
     };
+    function KmToMiles() {
+      return <h3>KM 2 M</h3>;
+    }
+
+    const App = () => {
+      const [index, setIndex] = React.useState("xx");
+      const onSelect = (event) => setIndex(event.target.value);
+
+      console.log("render w/", index);
+
+      return (
+        <div>
+          <h1>Spuer Converter</h1>
+          <select value={index} onChange={onSelect}>
+            <option value="xx">Select your units</option>
+            <option value="0">Minutes & Hour</option>
+            <option value="1">Km & Miles</option>
+          </select>
+          <hr />
+          {index === "xx" ? "Please select tour units" : null}
+          {index === "0" ? <MinutesToHours /> : null}
+          {index === "1" ? <KmToMiles /> : null}
+        </div>
+      );
+    };
+
     ReactDOM.render(<App />, root);
   </script>
 </html>
