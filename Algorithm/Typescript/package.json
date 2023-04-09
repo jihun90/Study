@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "${file}",
   "scripts": {
-    "start": "ts-node source/230321_baekjoon10430.ts input.txt",
+    "start": "ts-node source/230403_baekjoon2675.ts input.txt",
     "compile": "tsc"
   },
   "dependencies": {
