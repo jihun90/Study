@@ -9,8 +9,8 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    function Btn(props) {
-      return <button style={{ backgroundColor: "tomato", color: "while", padding: "10px 20px", border: 0, borderRadius: 10 }}>{props.banana}</button>;
+    function Btn({ banana }) {
+      return <button style={{ backgroundColor: "tomato", color: "while", padding: "10px 20px", border: 0, borderRadius: 10 }}>{banana}</button>;
     }
 
     const App = () => {
