@@ -15,6 +15,23 @@ Debounce::~Debounce()
 {
 }
 
+void Debounce::CreateObject()
+{
+    if (instance == nullptr)
+    {
+        instance = new Debounce();
+    }
+}
+
+Debounce *Debounce::GetInstance()
+{
+    if (instance == nullptr)
+    {
+        instance = new Debounce();
+    }
+    return instance;
+}
+
 void Debounce::timerfunction()
 {
     while (std::chrono::high_resolution_clock::now() < endTime)
@@ -23,6 +40,7 @@ void Debounce::timerfunction()
     }
 
     this->Notify();
+    Reset();
 }
 
 void Debounce::Execute(DebounceEvent debounceEvent, int Delay)
@@ -59,6 +77,4 @@ void Debounce::Notify()
         event.Execute();
     }
     mtx.unlock();
-
-    Reset();
 }

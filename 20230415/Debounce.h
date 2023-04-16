@@ -7,6 +7,8 @@ using namespace std;
 class Debounce
 {
 private:
+    static Debounce *instance;
+
     vector<DebounceEvent> eventVector;
     int delay;
 
@@ -21,5 +23,9 @@ private:
 public:
     Debounce();
     ~Debounce();
+
+    void CreateObject();
+    Debounce *GetInstance();
+
     void Execute(DebounceEvent debounceEvent, int Delay);
 };
