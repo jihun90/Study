@@ -1,7 +1,9 @@
 #include "Debounce.h"
+
 #include <vector>
 #include <chrono>
 #include <thread>
+#include <algorithm>
 
 using namespace std;
 
@@ -39,42 +41,39 @@ void Debounce::timerfunction()
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
-    this->Notify();
+    Notify();
     Reset();
 }
 
-void Debounce::Execute(IDebounceEvent debounceEvent, int delay)
+void Debounce::Execute(IDebounceEvent *debounceEvent, int delay)
 {
     unique_lock<mutex> lock(mtx);
-    auto iter = find(this->eventVector.begin(), this->eventVector.end(), debounceEvent);
+    // vector<IDebounceEvent>::iterator it = find(Debounce::eventVector.begin(), Debounce::eventVector.end(), debounceEvent);
 
-    if ((iter) == this->eventVector.end())
-        this->eventVector.push_back(debounceEvent);
+    // if (it == Debounce::eventVector.end())
+    eventVector.push_back(debounceEvent);
+
+    startTime = chrono::high_resolution_clock::now();
+    endTime = startTime + std::chrono::seconds(delay);
     mtx.unlock();
-
-    auto start_time = chrono::high_resolution_clock::now();
-    auto end_time = start_time + seconds(delay);
-
-    if (!this->timeThread.joinable())
-    {
-        this->timeThread = thread(this->timerfunction);
-        timeThread.detach();
-    }
+    thread timeThread(timerfunction);
+    timeThread.detach();
 }
 
 void Debounce::Reset()
 {
     unique_lock<mutex> lock(mtx);
-    this->eventVector.clear();
+    eventVector.clear();
     mtx.unlock();
 }
 
 void Debounce::Notify()
 {
     unique_lock<mutex> lock(mtx);
-    for (auto event : this->eventVector)
+    int vectorSize = eventVector.size();
+    for (int i = 0; i < vectorSize; i++)
     {
-        event.Execute();
+        (*eventVector[i]).Execute();
     }
     mtx.unlock();
 }

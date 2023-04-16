@@ -1,3 +1,4 @@
+#include "Debounce.EventArg.h"
 #include <vector>
 #include <chrono>
 #include <thread>
@@ -7,18 +8,15 @@ using namespace std;
 class Debounce
 {
 private:
+    static void timerfunction();
+    static int delay;
+    static void Notify();
+    static void Reset();
+
     static Debounce *instance;
-
-    vector<IDebounceEvent> eventVector;
-    int delay;
-
-    thread timeThread;
-    chrono::steady_clock::time_point startTime;
-    chrono::steady_clock::time_point endTime;
-    void timerfunction();
-
-    void Notify();
-    void Reset();
+    static vector<IDebounceEvent *> eventVector;
+    static chrono::steady_clock::time_point startTime;
+    static chrono::steady_clock::time_point endTime;
 
 public:
     Debounce();
@@ -27,5 +25,5 @@ public:
     void CreateObject();
     Debounce *GetInstance();
 
-    void Execute(IDebounceEvent debounceEvent, int Delay);
+    void Execute(IDebounceEvent *debounceEvent, int Delay);
 };

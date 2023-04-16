@@ -1,36 +1,34 @@
 #include "Debounce.EventArg.h"
+#include <stdio.h>
 
-DebounceEvent::DebounceEvent()
-{
-    isRunning = false;
-}
+using namespace std;
 
-virtual void AFunctionEvent::Execute()
+void AFunctionEvent::Execute()
 {
     printf("AFuntion");
-};
+}
 
-virtual bool AFunctionEvent::CanExecute()
+bool AFunctionEvent::CanExecute()
 {
     return true;
-};
+}
 
-virtual void BFunctionEvent::Execute()
+void BFunctionEvent::Execute()
 {
     printf("BFuntion");
-};
+}
 
-virtual bool BFunctionEvent::CanExecute()
+bool BFunctionEvent::CanExecute()
 {
     return true;
-};
+}
 
-virtual void ABFunctionEvent::Execute();
+void ABFunctionEvent::Execute()
 {
     printf("ABFuntion");
-};
+}
 
-virtual bool ABFunctionEvent::CanExecute()
+bool ABFunctionEvent::CanExecute()
 {
     return true;
-};
+}
