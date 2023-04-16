@@ -43,7 +43,7 @@ void Debounce::timerfunction()
     Reset();
 }
 
-void Debounce::Execute(DebounceEvent debounceEvent, int Delay)
+void Debounce::Execute(IDebounceEvent debounceEvent, int delay)
 {
     unique_lock<mutex> lock(mtx);
     auto iter = find(this->eventVector.begin(), this->eventVector.end(), debounceEvent);
@@ -53,7 +53,7 @@ void Debounce::Execute(DebounceEvent debounceEvent, int Delay)
     mtx.unlock();
 
     auto start_time = chrono::high_resolution_clock::now();
-    auto end_time = start_time + seconds(Delay);
+    auto end_time = start_time + seconds(delay);
 
     if (!this->timeThread.joinable())
     {

@@ -1,9 +1,9 @@
 #include "Debounce.EventArg.h"
 
-virtual bool DebounceEvent::IsRunning()
+DebounceEvent::DebounceEvent()
 {
-    return true;
-};
+    isRunning = false;
+}
 
 virtual void AFunctionEvent::Execute()
 {

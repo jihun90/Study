@@ -9,7 +9,7 @@ class Debounce
 private:
     static Debounce *instance;
 
-    vector<DebounceEvent> eventVector;
+    vector<IDebounceEvent> eventVector;
     int delay;
 
     thread timeThread;
@@ -27,5 +27,5 @@ public:
     void CreateObject();
     Debounce *GetInstance();
 
-    void Execute(DebounceEvent debounceEvent, int Delay);
+    void Execute(IDebounceEvent debounceEvent, int Delay);
 };

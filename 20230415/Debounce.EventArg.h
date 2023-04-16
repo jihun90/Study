@@ -1,5 +1,5 @@
-typedef void (*EventHandler)();
-typedef bool (*CanExecute)();
+// typedef void (*EventHandler)();
+// typedef bool (*CanExecute)();
 
 class IDebounceEvent
 {
@@ -12,9 +12,10 @@ public:
 class DebounceEvent : public IDebounceEvent
 {
 public:
+    DebounceEvent();
     virtual void Execute() = 0;
     virtual bool canExecute() = 0;
-    virtual bool isRunning();
+    bool isRunning;
 };
 
 class AFunctionEvent : public DebounceEvent
