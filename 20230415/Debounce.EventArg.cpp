@@ -1,19 +1,36 @@
 #include "Debounce.EventArg.h"
 
-DebounceEvent::DebounceEvent(EventHandler eventHandler, CanExecute canExecute)
+virtual bool DebounceEvent::IsRunning()
 {
-    this->eventHandler = eventHandler;
-    this->canExecute = canExecute;
-}
+    return true;
+};
 
-DebounceEvent::~DebounceEvent()
+virtual void AFunctionEvent::Execute()
 {
-}
+    printf("AFuntion");
+};
 
-void DebounceEvent::Execute()
+virtual bool AFunctionEvent::CanExecute()
 {
-    if (this->canExecute())
-    {
-        this->eventHandler();
-    }
-}
+    return true;
+};
+
+virtual void BFunctionEvent::Execute()
+{
+    printf("BFuntion");
+};
+
+virtual bool BFunctionEvent::CanExecute()
+{
+    return true;
+};
+
+virtual void ABFunctionEvent::Execute();
+{
+    printf("ABFuntion");
+};
+
+virtual bool ABFunctionEvent::CanExecute()
+{
+    return true;
+};
