@@ -22,10 +22,10 @@ void Debounce::timerfunction()
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
-    this->Execute();
+    this->Notify();
 }
 
-void Debounce::Start(DebounceEvent debounceEvent, int Delay)
+void Debounce::Execute(DebounceEvent debounceEvent, int Delay)
 {
     unique_lock<mutex> lock(mtx);
     auto iter = find(this->eventVector.begin(), this->eventVector.end(), debounceEvent);
@@ -51,7 +51,7 @@ void Debounce::Reset()
     mtx.unlock();
 }
 
-void Debounce::Execute()
+void Debounce::Notify()
 {
     unique_lock<mutex> lock(mtx);
     for (auto event : this->eventVector)

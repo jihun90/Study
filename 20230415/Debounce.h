@@ -15,11 +15,11 @@ private:
     chrono::steady_clock::time_point endTime;
     void timerfunction();
 
-    void Execute();
+    void Notify();
     void Reset();
 
 public:
     Debounce();
     ~Debounce();
-    void Start(DebounceEvent debounceEvent, int Delay);
+    void Execute(DebounceEvent debounceEvent, int Delay);
 };
