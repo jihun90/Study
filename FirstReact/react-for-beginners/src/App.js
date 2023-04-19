@@ -2,7 +2,45 @@ import Button from "./Button";
 import styles from "./App.module.css";
 import { useState, useEffect } from "react";
 
-function App() {
+function Hello() {
+  function byFn() {
+    console.log("bye :(");
+  }
+  function hiFn() {
+    console.log("Created :)");
+    return byFn();
+  }
+  useEffect(() => {
+    console.long("hi :)");
+    return byFn;
+  }, []);
+  useEffect(() => {
+    console.log("hi :)");
+    return;
+  }, []);
+
+  useEffect(() => {
+    console.log("hi :)");
+    return function () {
+      console.log("bye :(");
+    };
+  }, []);
+
+  return <h1>Hello</h1>;
+}
+
+function CleanUPFunction() {
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing((prev) => !prev);
+  return (
+    <div>
+      {showing ? <Hello /> : null}
+      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
+    </div>
+  );
+}
+
+function UseEffectTest() {
   const [counter, setValue] = useState(0);
   const [keyword, setKeyword] = useState("");
 
@@ -31,6 +69,15 @@ function App() {
       <input value={keyword} onChange={onChange} type="text" placeholder="Shearch here..." />
       <h1>{counter}</h1>
       <button onClick={onClick}>click me</button>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <CleanUPFunction />
+      {/* <UseEffectTest /> */}
     </div>
   );
 }
