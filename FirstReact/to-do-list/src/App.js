@@ -6,7 +6,6 @@ function App() {
   const onChange = (event) => setToDo(event.target.value);
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(toDo);
     if (toDo === "") return;
 
     SetToDos((currentArray) => [toDo, ...currentArray]);
