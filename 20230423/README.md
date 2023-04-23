@@ -56,3 +56,5 @@ fetch("https://www.naver.com/")
   .then((url) => {console.log("sucess - " + url); return response.json();})
   .catch((error) => console.log("error:", error));
 ```
+
+- 비동기 처리 방식에 **async/await** 을 가장 많이 사용한다던데, 이것은 나중에 알아보도록 하자!
