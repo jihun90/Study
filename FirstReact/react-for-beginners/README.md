@@ -1,3 +1,5 @@
 - useState 연습
 - useEffect 연습
+- protoTypes 연습
+- CleanUp Function 생성
 - 기타 등등..?
