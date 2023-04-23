@@ -17,13 +17,13 @@ function App() {
     <div>
       <h1>The Conins ({coins.length})</h1>
       {loading ? <strong>Loding...</strong> : null}
-      <ul>
+      <select>
         {coins.map((coin) => (
-          <li key={coin.id}>
+          <option key={coin.id}>
             {coin.name} ({coin.symbol}): {coin.quotes.USD.price} USD
-          </li>
+          </option>
         ))}
-      </ul>
+      </select>
     </div>
   );
 }
