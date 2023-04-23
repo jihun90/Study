@@ -13,10 +13,8 @@ function App() {
       });
   }, []);
 
-  return (
-    <div>
-      <h1>The Conins ({coins.length})</h1>
-      {loading ? <strong>Loding...</strong> : null}
+  function CoinList() {
+    return (
       <select>
         {coins.map((coin) => (
           <option key={coin.id}>
@@ -24,6 +22,13 @@ function App() {
           </option>
         ))}
       </select>
+    );
+  }
+
+  return (
+    <div>
+      <h1>The Conins {loading ? "" : `(${coins.length})`}</h1>
+      {loading ? <strong>Loding...</strong> : <CoinList />}
     </div>
   );
 }
