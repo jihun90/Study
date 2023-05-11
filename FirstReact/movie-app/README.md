@@ -2,3 +2,4 @@
 - 영화 제목 클릭시 간단하게 영화 Description을 보여주는 페이지로 이동 (대충 만든 페이지..)
 - git hub을 이용한 배포
   - https://jihun90.github.io/Study/
+- Detail Page에서 새로고침하면 죽는 버그 있는데.. 앞으로 더 공부해서 고쳐보자!
