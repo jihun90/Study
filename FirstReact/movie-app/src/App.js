@@ -7,7 +7,7 @@ function App() {
     <Router>
       <Routes>
         <Route
-          path={`${process.env.PUBLIC_URL}/movie/:id`}
+          path={`/movie/:id`}
           element={<Detail />}
         ></Route>
         <Route
