@@ -3,7 +3,6 @@
 공부, 기록, 혼잣말
 
 ## Python
-
 - [Method Decorator](https://github.com/jihun90/Study/tree/main/20230320)
 
 ## C++
@@ -17,3 +16,6 @@
 ## React
 
 - [JavaScript, HTML, CSS도 모르면서 배우는 리액트 스터디](https://github.com/jihun90/Study/tree/main/FirstReact)
+
+## TypeScript
+- [간단히 문법 공부](https://github.com/jihun90/Study/tree/main/learn-typescript)
