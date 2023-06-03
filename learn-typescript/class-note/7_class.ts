@@ -8,3 +8,4 @@ class Person7 {
         this.age = age;
     }
 }
+let kim = new Person7('kim', 1000); 
