@@ -7,9 +7,9 @@ if (__name__ == '__main__'):
 
     item : IItem;
     if isItemA:
-        item = ItemA(); # 6
+        item = ItemA(); # result = 6
     else :
-        item = ItemB(); # 5
+        item = ItemB(); # result = 5
 
     item.Update(Material(1,2,3));
     print(item.GetResult());
